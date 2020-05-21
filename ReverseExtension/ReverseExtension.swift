@@ -197,9 +197,9 @@ extension UITableView {
         
         fileprivate func configureCell(_ cell: UITableViewCell?) {
             guard let cell = cell else { return }
-            for view in cell.subviews where String(describing: view).contains("Confirm") {
-                if view.transform == CGAffineTransform.identity {
-                    DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                for view in cell.subviews where String(describing: view).contains("Confirm") {
+                    if view.transform == CGAffineTransform.identity {
                         //UIView.setAnimationsEnabled(false)
                         view.transform = CGAffineTransform.identity.rotated(by: .pi)
                         //UIView.setAnimationsEnabled(true)
